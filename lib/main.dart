@@ -3,14 +3,15 @@ import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:io';
+import 'registro_page.dart';
 import 'mapa.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
-    url: 'https://gyayczezbyxmstzzakax.supabase.co',
+    url: 'https://kdqrpbntunudrhyemzgq.supabase.co',
     anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5YXljemV6Ynl4bXN0enpha2F4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU0Nzk0NzksImV4cCI6MjA1MTA1NTQ3OX0.i3jytGYlktlVOrGmpcp89JpX-CD00MlsoHVJ_VKAptI',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkcXJwYm50dW51ZHJoeWVtemdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY2OTMxMjAsImV4cCI6MjA1MjI2OTEyMH0.b8YacZg9WFv93YGnE2_9dfmXphQ1InhbRo2GOmJ1m1c',
   );
 
   runApp(MaterialApp(
@@ -197,6 +198,15 @@ class _ImagePickerAppState extends State<ImagePickerApp> {
                 }
               },
               child: Text('Ver Mapa'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                );
+              },
+              child: Text('Registrarse'),
             ),
           ],
         ),
