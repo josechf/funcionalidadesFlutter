@@ -1,3 +1,5 @@
+[![primerActions](https://github.com/josechf/funcionalidadesFlutter/actions/workflows/mainActions.yml/badge.svg)](https://github.com/josechf/funcionalidadesFlutter/actions/workflows/mainActions.yml)
+
 # aver
 
 A new Flutter project.
