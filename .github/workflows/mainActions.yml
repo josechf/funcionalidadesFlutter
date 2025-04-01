@@ -3,16 +3,30 @@ name: primerActions
 on: 
   push:
     branches: 
-      - main
+      - main #rama que se va a usar
 jobs:
   build:
     env:
       platform: ${{secrets.PLATAFORMA}}
+      AWS_REGION : "us-east-1"
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # permiso necesario para aws
     steps:
       - name: checkout repo
         uses: actions/checkout@v4.2.2
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+        with:
+          role-to-assume: arn:aws:iam::418272787842:role/pruebaActions
+          #role-session-name: samplerolesession
+          aws-region: ${{ env.AWS_REGION }}
+      - name: AWSacciones
+        if: always() 
+        run: |
+          aws s3 ls
       - name: mensaje
         if: ${{env.platform == 'aws'}}
         run: |
           echo "usando: ${{env.platform}}"
+        
