@@ -2,11 +2,12 @@ name: primerActions
 
 on: 
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v4.2.2
+      - name: mensaje
+        run: "hola mundo"
